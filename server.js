@@ -9,9 +9,6 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// Creating GET routes
-
-// GET route sending user to INDEX page
 app.get("/", function (req, res) {
   res.sendFile(path.join(__dirname, "public/index.html"));
 });
@@ -21,12 +18,10 @@ app.get("/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "public/notes.html"));
 });
 
-// GET route using DB.JSON file
 app.get("/api/notes", function (req, res) {
   res.sendFile(path.join(__dirname, "db/db.json"));
 });
 
-// Creating POST route- takes JSON input, "title" "text" and adds a new note object to the db.json file
 app.post("/api/notes", function (req, res) {
   fs.readFile(
     path.join(__dirname, "db.json"),
@@ -56,7 +51,6 @@ app.post("/api/notes", function (req, res) {
   );
 });
 
-// Creates DELETE function- deleting the note object with the id from the DB.JSON FILE
 app.delete("/api/notes/:id", function (req, res) {
   const deleteID = req.params.id;
   fs.readFile("db.json", "utf8", function (error, response) {
