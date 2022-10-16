@@ -1,7 +1,7 @@
 const fs = require("fs");
-const db = require("../../db/db.json");
+const db = require("../db/db.json");
 const router = require("express").Router();
-const uniqid = require("uniqid");
+const uuid = require("uuid");
 
 router.get("/api/notes", (req, res) => {
   fs.readFile("./db/db.json", (err, data) => {
@@ -14,7 +14,7 @@ router.get("/api/notes", (req, res) => {
 
 router.post("/api/notes", (req, res) => {
   let newNote = {
-    id: uniqid(),
+    id: uuid(),
     title: req.body.title,
     text: req.body.text,
   };
