@@ -23,7 +23,7 @@ app.get("/notes", function (req, res) {
 
 // GET route using DB.JSON file
 app.get("/api/notes", function (req, res) {
-  res.sendFile(path.join(__dirname, "db.json"));
+  res.sendFile(path.join(__dirname, "db/db.json"));
 });
 
 // Creating POST route- takes JSON input, "title" "text" and adds a new note object to the db.json file
