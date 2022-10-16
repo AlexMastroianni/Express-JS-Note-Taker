@@ -34,12 +34,6 @@ router.post("/api/notes", (req, res) => {
       res.send("successfully added");
     });
   });
-  // //2. create a variable and parse the data which got returned
-
-  // //3. push the new Note to that parsed data
-
-  // //4. use fs to write new content of that parsed data to db.json file
-  // req.body.id = notes.length.toString();
 });
 
 module.exports = router;
