@@ -1,9 +1,19 @@
 {
   "notes": [
     {
-      "title": "Welcome",
-      "text": "This app allows you to add notes. You can add notes by clicking the pencil icon",
+      "title": "Hello ",
+      "text": "Testing",
       "id": "0"
+    },
+    {
+      "title": "Run to the shower",
+      "text": "Testing",
+      "id": "1"
+    },
+    {
+      "title": "Go to school",
+      "text": "Study",
+      "id": "2"
     }
   ]
 }

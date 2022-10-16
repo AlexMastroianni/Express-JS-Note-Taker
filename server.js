@@ -11,23 +11,9 @@ app.use(express.json());
 app.use("/api", apiRoute);
 app.use("/", htmlRoute);
 
-// Creates listener which starts the server
 app.listen(PORT, function () {
   console.log(`App is listening on Port ${PORT}`);
 });
-
-// app.use("/", function (req, res) {
-//   res.sendFile(path.join(__dirname, "public/index.html"));
-// });
-
-// // GET route sending user to NOTES page
-// app.get("/notes", function (req, res) {
-//   res.sendFile(path.join(__dirname, "public/notes.html"));
-// });
-
-// app.get("/api/notes", function (req, res) {
-//   res.sendFile(path.join(__dirname, "db/db.json"));
-// });
 
 // app.post("/api/notes", function (req, res) {
 //   fs.readFile(
@@ -58,23 +44,23 @@ app.listen(PORT, function () {
 //   );
 // });
 
-app.delete("/api/notes/:id", function (req, res) {
-  const deleteID = req.params.id;
-  fs.readFile("db.json", "utf8", function (error, response) {
-    if (error) {
-      console.log(error);
-    }
-    let notes = JSON.parse(response);
-    if (deleteID <= notes.length) {
-      res.json(notes.splice(deleteID - 1, 1));
-      for (let i = 0; i < notes.length; i++) {
-        notes[i].id = i + 1;
-      }
-      fs.writeFile("db.json", JSON.stringify(notes, null, 2), function (err) {
-        if (err) throw err;
-      });
-    } else {
-      res.json(false);
-    }
-  });
-});
+// app.delete("/api/notes/:id", function (req, res) {
+//   const deleteID = req.params.id;
+//   fs.readFile("db.json", "utf8", function (error, response) {
+//     if (error) {
+//       console.log(error);
+//     }
+//     let notes = JSON.parse(response);
+//     if (deleteID <= notes.length) {
+//       res.json(notes.splice(deleteID - 1, 1));
+//       for (let i = 0; i < notes.length; i++) {
+//         notes[i].id = i + 1;
+//       }
+//       fs.writeFile("db.json", JSON.stringify(notes, null, 2), function (err) {
+//         if (err) throw err;
+//       });
+//     } else {
+//       res.json(false);
+//     }
+//   });
+// });
