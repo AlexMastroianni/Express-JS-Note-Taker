@@ -5,7 +5,7 @@ const uuid = require("uuid");
 
 const { notes } = require("../db/db");
 
-const { noteCreateNewNote, noteDeleteNote } = require("../routes/notes");
+const { createNote, deleteNote } = require("../routes/notes");
 
 router.get("/notes", (req, res) => {
   let saved = notes;
@@ -14,12 +14,12 @@ router.get("/notes", (req, res) => {
 
 router.post("/notes", (req, res) => {
   req.body.id = notes.length.toString();
-  let note = noteCreateNewNote(req.body, notes);
+  let note = createNote(req.body, notes);
   res.json(note);
 });
 
 router.delete("/notes/:id", (req, res) => {
-  noteDeleteNote(notes, req.params.id);
+  deleteNote(notes, req.params.id);
   res.json(notes);
 });
 
