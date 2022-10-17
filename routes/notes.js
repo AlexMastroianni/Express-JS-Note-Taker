@@ -1,20 +1,20 @@
 const fs = require("fs");
-
 const path = require("path");
 
-function deleteNote(noteTakerArray, id) {
+// for loop to check notes id and then remove from db
+function deleteNote(notesArray, id) {
   let deleteID = parseInt(id);
-  noteTakerArray.splice(deleteID, 1);
+  notesArray.splice(deleteID, 1);
 
-  for (let i = deleteID; i < noteTakerArray.length; i++) {
-    noteTakerArray[i].id = i.toString();
+  for (let i = deleteID; i < notesArray.length; i++) {
+    notesArray[i].id = i.toString();
   }
 
   fs.writeFileSync(
     path.join(__dirname, "../db/db.json"),
     JSON.stringify(
       {
-        notes: noteTakerArray,
+        notes: notesArray,
       },
       null,
       2
@@ -22,14 +22,15 @@ function deleteNote(noteTakerArray, id) {
   );
 }
 
-function createNote(body, noteTakerArray) {
+// notes creation function
+function createNote(body, notesArray) {
   const note = body;
-  noteTakerArray.push(note);
+  notesArray.push(note);
   fs.writeFileSync(
     path.join(__dirname, "../db/db.json"),
     JSON.stringify(
       {
-        notes: noteTakerArray,
+        notes: notesArray,
       },
       null,
       2
