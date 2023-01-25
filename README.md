@@ -1,6 +1,6 @@
-# week-11- challenge Note Taker
+# Note Taker
 
-# This weeks challenge
+# Taking Note
 
 # Overview
 
